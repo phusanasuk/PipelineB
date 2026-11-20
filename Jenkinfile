@@ -1,0 +1,55 @@
+pipeline {
+    agent { label 'built-in' }
+
+    options {
+        skipDefaultCheckout()
+    }
+
+    stages {
+        stage('Clone Repo A') {
+            steps {
+                deleteDir()
+                sh 'git clone --depth 1 https://github.com/phusanasuk/grpc.git repo-a'
+            }
+        }
+
+        stage('Generate HTML documentation') {
+            steps {
+                dir('repo-a') {
+                    sh '''
+                        set -eu
+                        test -d src
+
+                        doxygen -g Doxyfile
+
+                        sed -i -E '/^(INPUT|RECURSIVE|OUTPUT_DIRECTORY|HTML_OUTPUT|GENERATE_HTML|GENERATE_LATEX|GENERATE_XML|GENERATE_MAN|GENERATE_RTF|GENERATE_DOCBOOK)[[:space:]]*=/d' Doxyfile
+
+                        cat >> Doxyfile <<'EOF'
+
+INPUT = src
+RECURSIVE = YES
+OUTPUT_DIRECTORY = generated-doc
+HTML_OUTPUT = html
+GENERATE_HTML = YES
+GENERATE_LATEX = NO
+GENERATE_XML = NO
+GENERATE_MAN = NO
+GENERATE_RTF = NO
+GENERATE_DOCBOOK = NO
+EOF
+
+                        doxygen Doxyfile
+                        test -s generated-doc/html/index.html
+                    '''
+                }
+            }
+        }
+
+        stage('Package and archive') {
+            steps {
+                sh 'tar -czf doc.tar.gz -C repo-a/generated-doc html'
+                archiveArtifacts artifacts: 'doc.tar.gz'
+            }
+        }
+    }
+}
