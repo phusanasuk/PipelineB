@@ -13,7 +13,7 @@ Reduces the size of the Git repository and Makes downloading and updating the re
  1.provide links
 https://git-lfs.com/
 
- 2. how to use git LFS
+ 2.How to use git LFS
 Step 1: Install Git LFS
 ```bash
 git lfs install
