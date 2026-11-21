@@ -30,4 +30,6 @@ git commit -m "Enable Git LFS for binary files"
 git push
 ```
 
-3.gitignore, Cloud storage 
+3.gitignore - ใช้ง่าย เก็บข้อมูลบน GitHub ไม่ได้ ลดไฟล์บน Git ได้
+  Cloud storage 
+
