@@ -9,10 +9,11 @@ I tested the Python script using sample Doxygen warning logs. I verified that th
 Reduces the size of the Git repository and Makes downloading and updating the repository more efficient.
 
 ##4.Configuring Git LFS
-1.provide links
+
+ 1.provide links
 https://git-lfs.com/
 
-2. how to use git LFS
+ 2. how to use git LFS
 Step 1: Install Git LFS
 ```bash
 git lfs install
@@ -31,7 +32,7 @@ git commit -m "Enable Git LFS for binary files"
 git push
 ```
 
-3.Are there other (easier) alternatives?
+ 3.Are there other (easier) alternatives?
 gitignore - ใช้ง่าย เก็บข้อมูลบน GitHub ไม่ได้ ลดไฟล์บน Git ได้
- หรือใช้ Cloud storage 
+หรือใช้ Cloud storage 
 
