@@ -1,1 +1,1 @@
-# devops-pipelines
+# 1.I tested the Jenkins pipelines by triggering builds manually through Jenkins and reviewing the console output. I checked the execution of each stage and verified that the expected output files were generated correctly
