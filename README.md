@@ -33,6 +33,6 @@ git push
 ```
 
  3.Are there other (easier) alternatives?
-gitignore - ใช้ง่าย เก็บข้อมูลบน GitHub ไม่ได้ ลดไฟล์บน Git ได้
+ gitignore - ใช้ง่าย เก็บข้อมูลบน GitHub ไม่ได้ ลดไฟล์บน Git ได้
 หรือใช้ Cloud storage 
 
